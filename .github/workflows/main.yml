@@ -1,0 +1,15 @@
+name: test secrets
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run a one-line script
+      run: |
+        echo ${{ secrets.TEST_FROM_ORG }} | rev
+        echo ${{ secrets.TEST_FROM_REPO }} | rev
+
